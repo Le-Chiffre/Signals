@@ -11,6 +11,10 @@ import io.github.lechiffre.signals.filters.*;
  * changeFilter(greater(aga.speed, constant(50f)));
  */
 public final class SignalBuilder {
+    public static <T> void bind(Listener<T> listener, Signal<T> signal) {
+        signal.onChange(listener);
+    }
+
     public static <T> Signal<T> constant(T v) {
         return new Constant<>(v);
     }
